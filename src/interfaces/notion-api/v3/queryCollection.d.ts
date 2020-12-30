@@ -25,7 +25,7 @@ export namespace QueryCollection {
       userLocale: string
       userTimeZone: Util.TimeZone
     }
-    query: Query2
+    query?: Query2
   }
 
   interface Response {

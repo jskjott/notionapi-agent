@@ -118,6 +118,7 @@ export namespace SubmitTransaction {
   interface Transaction {
     /** Just generate one by yourself. */
     id: Util.UUID
+    spaceId: Util.UUID
     operations: Operation[]
   }
 

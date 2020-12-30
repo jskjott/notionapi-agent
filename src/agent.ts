@@ -123,9 +123,13 @@ interface Agent {
    */
   submitTransaction: (req: API.SubmitTransaction.Request) =>
     Promise<API.SubmitTransaction.Response>
+
+  enqueueTask: (req: API.EnqueueTask.Request) =>
+    Promise<API.EnqueueTask.Response>
+
+  getTasks: (req: API.GetTasks.Request) =>
+    Promise<API.GetTasks.Response>
 }
-
-
 
 /**
  * Create an asynchronous Notion API function.
@@ -216,6 +220,14 @@ function createAgent(opts: CreateAgentOptions = {}): Agent {
     createAPI<API.SubmitTransaction.Request, API.SubmitTransaction.Response>(
       `${server}/api/v3/submitTransaction`, token)
 
+  const enqueueTask =
+  createAPI<API.EnqueueTask.Request, API.EnqueueTask.Response>(
+    `${server}/api/v3/enqueueTask`, token)
+  
+  const getTasks =
+    createAPI<API.GetTasks.Request, API.GetTasks.Response>(
+      `${server}/api/v3/getTasks`, token)
+
   return {
     getActivityLog,
     getAssetsJson,
@@ -225,7 +237,9 @@ function createAgent(opts: CreateAgentOptions = {}): Agent {
     loadPageChunk,
     loadUserContent,
     queryCollection,
-    submitTransaction
+    submitTransaction,
+    enqueueTask,
+    getTasks,
   }
 }
 
