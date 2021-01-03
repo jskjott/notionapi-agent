@@ -28,5 +28,4 @@ yarn.lock
 test/*
 !test/index.spec.ts
 *.log
-dist/
 typedoc/
