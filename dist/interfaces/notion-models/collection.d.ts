@@ -54,6 +54,10 @@ export interface ColumnProperty {
 	property?: string
 }
 
+export type CollectionSchema = {
+	[key in string]: ColumnProperty
+}
+
 export namespace Collection {
 	/**
 	 * Also used in {@link CollectionView.TableProperty},
